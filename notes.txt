@@ -1,0 +1,37 @@
+when i mounted the RefinementList Component, i couldn't display anything  in the ui, 
+
+i checked the code, everything was looking okay,
+
+in the docs about this widget section 
+I found a line that says :
+
+A refinement list only displays the most relevant facet values for the current search context. 
+
+the widget also implements seach for faced values, 
+
+from this point forward everything i read had this word in it "facet", didn't bother looking up the word in the dictionary, because words mean different things to different people in different contexes. 
+
+In Algolia speak, a facet has to do with the attributes/properties of the data that you are filtering.
+
+a facet is a data property that you want to filter by
+
+the key is you have to configure your index to filter those attributes, when you do, then they will appear on the frontend of your site. 
+
+go to manage index, 
+go to configuration, 
+filtering and faceting
+
+facets -> choose and save the property to facet :)
+Facet display -> you can now set that facet to display in the UI, 
+
+then follow the documentation for refinement list to see this facet in action
+
+pretty cool huh
+
+
+Resend markethub password
+M@rkethub.c0m
+
+
+
+

@@ -1,0 +1,24 @@
+# Settings for Backend (on Cloud Run).
+# See https://firebase.google.com/docs/app-hosting/configure#cloud-run
+runConfig:
+  minInstances: 0
+  maxInstances: 10
+  concurrency: 50
+  cpu: 1
+  memoryMiB: 512
+
+# Environment variables and secrets.
+env:
+  # Configure environment variables
+
+  - variable: NEXT_PUBLIC_BASE_API_URL
+    value: markethub--markethub-cce4f.asia-east1.hosted.app
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NEXTAUTH_SECRET
+    value: qFe6LLi3vB9w0adeGeYtYUWoubW4MK7f6GOoM4jhGtA=
+    availability:
+      - BUILD
+      - RUNTIME
