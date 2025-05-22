@@ -18,7 +18,7 @@ export default async function RootLayout({
     <div className="bg-[#fefaf6] min-h-screen w-full text-[#5c5346]">
       {/* Header/Nav */}
       <header className="border-b border-[#e0d6cd] bg-[#fcf8f3]">
-        <Nav />
+        <Nav categoriesFetched={categories} />
 
         {/* Navbar */}
         <nav className=" hidden lg:block  top-0 z-30 bg-[#5a493b] text-white font-semibold text-sm shadow-sm">
@@ -29,7 +29,7 @@ export default async function RootLayout({
       <div>{children}</div>
 
       <footer className="bg-[#fcf8f3] text-[#7a6f64] py-6 text-center text-sm border-t  border-[#e0d6cd]">
-        <div className="max-w-full mx-auto px-10 flex flex-col md:flex-row justify-between items-start gap-8">
+        <div className="max-w-full mx-auto px-10 flex sm:flex-row flex-wrap justify-between items-start sm:items-center gap-8">
           <div className="flex flex-col items-start mb-4 md:mb-0">
             <img
               src="https://ext.same-assets.com/3082109262/2665675448.png"

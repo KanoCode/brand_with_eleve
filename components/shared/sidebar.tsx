@@ -41,7 +41,7 @@ function SideBar({ categories }: any) {
   return (
     <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
       <SheetTrigger asChild>
-        <MdMenu className="w-12 h-12 text-primary text-2xl" />
+        <MdMenu className="w-12 h-12 text-[#5a493b] text-2xl" />
       </SheetTrigger>
       <SheetContent className="filters-side-bar overflow-y-auto" side={"left"}>
         <Navbar2 categories={categories} setOpen={setSheetOpen}></Navbar2>
@@ -50,7 +50,7 @@ function SideBar({ categories }: any) {
             <AccordionItem value="0">
               <AccordionTrigger>
                 <div>
-                  <button type="button" className="flex gap-2 text-white">
+                  <button type="button" className="flex gap-2 text-black">
                     <span className="flex items-center gap-2">Quick Links</span>
                   </button>
                 </div>
@@ -59,7 +59,7 @@ function SideBar({ categories }: any) {
               <AccordionContent>
                 <div className="flow-root">
                   <Link
-                    className="text-white border-none bg-[rgb(65,107,32)] group flex items-center px-2 py-2 font-medium rounded-md my-1"
+                    className="text-white bg-[#5a493b] border-none  group flex items-center px-2 py-2 font-medium rounded-md my-1"
                     title="Home"
                     href="/"
                   >
@@ -73,7 +73,7 @@ function SideBar({ categories }: any) {
                 </div>
                 <div className="flow-root">
                   <Link
-                    className="text-white bg-[rgb(65,107,32)] hover:bg-[#30465C] group flex items-center px-2 py-2 font-medium rounded-md"
+                    className="text-white bg-[#5a493b] hover:bg-[#30465C] group flex items-center px-2 py-2 font-medium rounded-md"
                     title="Home"
                     href="/contact"
                   >
@@ -127,9 +127,9 @@ const Navbar2 = (props: any) => {
 
   return (
     <nav>
-      <div className="">
+      {/* <div className="">
         <Image className="w-32 mx-auto h-auto" src={logo1} alt="store-logo" />
-      </div>
+      </div> */}
 
       <Accordion type="single" collapsible>
         {props.categories?.map(
@@ -144,7 +144,7 @@ const Navbar2 = (props: any) => {
                       query: { keywords: categoryName },
                     }}
                   >
-                    <button type="button" className="flex gap-2 text-white">
+                    <button type="button" className="flex gap-2 text-black">
                       <span className="flex items-center gap-2">
                         {categoryName}
                       </span>
@@ -160,7 +160,7 @@ const Navbar2 = (props: any) => {
                           onClick={() => {
                             props.setOpen(false);
                           }}
-                          className="text-white my-1 border-none bg-[rgb(65,107,32)] group flex items-center px-4 py-2 font-medium rounded-md"
+                          className="text-white my-1 border-none bg-[#5a493b]  group flex items-center px-4 py-2 font-medium rounded-md"
                           href={`/shop/category/${childCategory.categoryPath}?keywords=${childCategory.categoryName}`}
                         >
                           {childCategory.categoryName}

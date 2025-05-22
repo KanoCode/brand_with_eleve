@@ -3,51 +3,21 @@ import { logo1 } from "@/asserts/img";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { ProductsNavSuspenseProps } from "@/lib/apiTypes";
 
 import Search from "./Search1";
-import { event } from "@/lib/ga";
 
-import CartSideBar from "./cartSideBar";
-import { useEffect, useState } from "react";
 import AllCategoriesDropdown from "./allCategoriesDropdown";
 import { MdMenu } from "react-icons/md";
-// import { useProductStore } from "@/app/store/productsStore";
+import SideBar from "./sidebar";
 
-function handleClick() {
-  // @ts-ignore
-  window.Calendly.initPopupWidget({
-    url: "https://calendly.com/sales-markethub-zm/30-minute-consultation",
-  });
-
-  return false;
-}
-
-const Nav = () => {
-  // dialog code starts
-
-  // const [isMdScreen, setIsMdScreen] = useState(false);
-
-  // // Function to detect screen size
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     setIsMdScreen(window.innerWidth >= 768); // Tailwind's md breakpoint is 768px
-  //   };
-
-  //   // Add event listener to check the screen size
-  //   window.addEventListener("resize", handleResize);
-  //   // Call the handler right away to set the state on initial load
-  //   handleResize();
-
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
-
+const Nav = ({ categoriesFetched }: ProductsNavSuspenseProps) => {
   return (
     <>
       <div className="flex border items-center mx-auto justify-between px-10 py-10">
         <div className="lg:hidden border">
-          <MdMenu className="w-12 h-12 text-[#5a493b] text-2xl" />
+          <SideBar categories={categoriesFetched}></SideBar>
+          {/* <MdMenu className="w-12 h-12 text-[#5a493b] text-2xl" /> */}
         </div>
         <img
           src="https://ext.same-assets.com/3082109262/2665675448.png"
@@ -62,8 +32,6 @@ const Nav = () => {
             className="  flex-grow px-4 py-2 text-sm focus:outline-none text-black"
           />
           <div className="lg:flex hidden items-center px-4 border-l border-[#5a493b] text-[#22201e] cursor-pointer hover:text-[#5c5346]">
-            {/* <span className="mr-1 text-sm">All Categories</span> */}
-
             <AllCategoriesDropdown />
             <svg
               className="w-4 h-4"
