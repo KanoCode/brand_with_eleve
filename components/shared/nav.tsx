@@ -10,6 +10,7 @@ import Search from "./Search1";
 import AllCategoriesDropdown from "./allCategoriesDropdown";
 import { MdMenu } from "react-icons/md";
 import SideBar from "./sidebar";
+import CartSideBar from "./cartSideBar";
 
 const Nav = ({ categoriesFetched }: ProductsNavSuspenseProps) => {
   return (
@@ -17,7 +18,6 @@ const Nav = ({ categoriesFetched }: ProductsNavSuspenseProps) => {
       <div className="flex border items-center mx-auto justify-between px-10 py-10">
         <div className="lg:hidden border">
           <SideBar categories={categoriesFetched}></SideBar>
-          {/* <MdMenu className="w-12 h-12 text-[#5a493b] text-2xl" /> */}
         </div>
         <img
           src="https://ext.same-assets.com/3082109262/2665675448.png"
@@ -26,11 +26,13 @@ const Nav = ({ categoriesFetched }: ProductsNavSuspenseProps) => {
         />
         {/* Search */}
         <div className="hidden md:flex items-center w-full max-w-4xl mx-4 rounded-full border border-[#d6c9b6] overflow-hidden bg-white shadow-sm">
-          <input
+          {/* <input
             type="text"
             placeholder="Search by product name, code or keyword"
             className="  flex-grow px-4 py-2 text-sm focus:outline-none text-black"
-          />
+          /> */}
+
+          <Search />
           <div className="lg:flex hidden items-center px-4 border-l border-[#5a493b] text-[#22201e] cursor-pointer hover:text-[#5c5346]">
             <AllCategoriesDropdown />
             <svg
@@ -62,6 +64,9 @@ const Nav = ({ categoriesFetched }: ProductsNavSuspenseProps) => {
               />
             </svg>
           </button>
+        </div>
+        <div className="hidden md:block">
+          <CartSideBar />
         </div>
 
         <button className="bg-[#5a493b] block md:hidden hover:bg-[#cbbcab] text-white p-2 px-4">

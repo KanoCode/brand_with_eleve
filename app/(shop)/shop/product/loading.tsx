@@ -6,7 +6,7 @@ const LoadingSkeleton = () => {
     <div className="w-full container mt-9">
       <Separator />
 
-      <div className="container mx-auto p-4 h-[60vh]">
+      <div className="container mx-auto p-4 h-full">
         <div className="flex flex-col md:flex-row gap-8">
           {/* Image Skeleton */}
           <div className="w-full md:w-1/2">

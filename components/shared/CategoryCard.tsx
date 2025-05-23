@@ -35,7 +35,7 @@ const CategoryCard: FC<Props> = ({
         onClick={() => {
           handleCardClick(categoryName);
         }}
-        className="border relative transition duration-500 sm:hover:shadow-product group h-full space-x-3"
+        className="border bg-white relative transition duration-500 sm:hover:shadow-product group h-full space-x-3"
       >
         <div className="card border CategoryCard">
           <div className="img-card h-40">
@@ -47,7 +47,7 @@ const CategoryCard: FC<Props> = ({
             />
           </div>
           <div className="card-body pb-0" style={{ minHeight: 90 + "px" }}>
-            <h2 className="card-title text-primary text-uppercase font-bold m-0 font-size-17">
+            <h2 className="card-title text-[#7a6f61] text-uppercase font-bold m-0 font-size-17">
               {categoryName}
             </h2>
           </div>

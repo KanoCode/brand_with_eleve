@@ -1,12 +1,9 @@
-import Footer from "@/components/shared/footer";
+
 import Nav from "@/components/shared/nav";
-import ProductNav from "@/components/shared/productsNav";
-import SideBar from "@/components/shared/sidebar";
-import { MdMenu } from "react-icons/md";
+
 import { getCategories } from "@/components/shared/productsNav";
 import Link from "next/link";
-import AllCategoriesDropdown from "@/components/shared/allCategoriesDropdown";
-import Dropdown from "@/components/shared/DropDown";
+
 import ProductsNavSuspense from "@/components/shared/CategoriesRenderer";
 export default async function RootLayout({
   children,
@@ -27,7 +24,7 @@ export default async function RootLayout({
       </header>
 
       <div>{children}</div>
-
+      <div className="w-full bg-[#5c5346] py-6"></div>
       <footer className="bg-[#fcf8f3] text-[#7a6f64] py-6 text-center text-sm border-t  border-[#e0d6cd]">
         <div className="max-w-full mx-auto px-10 flex sm:flex-row flex-wrap justify-between items-start sm:items-center gap-8">
           <div className="flex flex-col items-start mb-4 md:mb-0">

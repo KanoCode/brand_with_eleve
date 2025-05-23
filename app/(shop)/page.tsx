@@ -31,34 +31,15 @@ export default async function Home() {
   const partnerLinksCollectionRef = collection(db, "markethubPartners");
 
   let partnersArray: any = [];
-  // let featuredArray: any = await fetchFeaturedProducts();
 
-  // const querySnapshot = await getDocs(partnerLinksCollectionRef);
-  // querySnapshot.forEach((doc) => {
-  //   partnersArray.push({ id: doc.id, ...doc.data() });
-  // });
 
   return (
     <main>
       <HeroSection />
 
-      {/* <FeaturedProductsContainer>
-        <FeaturedProducts
-          manualPrices={manualPrices}
-          marketHubRate={marketHubRate}
-          generalPercentage={generalPercentage}
-          products={featuredArray}
-        />
-      </FeaturedProductsContainer> */}
-
-      {/* <HelpSection /> */}
-
       <HeroCategories />
       <section>
-        {/* <div className="my-4 text-center flex flex-col items-center gap-4">
-          <h1 className="text-center text-2xl">You Are In Safe Hands!</h1>
-          <hr className="w-[120px] border-[2px] border-primary" />
-        </div> */}
+       
         <div className="mx-auto md:w-3/4 w-full ">
           {/* <OurPartnersCarousel partnerLinks={partnersArray} /> */}
         </div>

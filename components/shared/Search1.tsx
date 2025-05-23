@@ -122,10 +122,10 @@ export default function Search() {
       <Autocomplete
         initialState={{ query: query || "" }}
         searchClient={searchClient}
-        placeholder="Search products"
+        placeholder="Search by product name, code or keyword"
         openOnFocus={true}
         detachedMediaQuery=""
-        className="lg:w-full"
+        className="w-full !bg-black"
         getSources={({ query }: { query: any }) => [
           {
             sourceId: "products",

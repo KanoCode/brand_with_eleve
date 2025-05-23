@@ -51,7 +51,7 @@ const ProductCard: FC<Props> = ({
           handleCardClick(fullCode);
         }}
       >
-        <div className="border p-2 relative transition duration-500 sm:hover:shadow-product group h-full space-x-3">
+        <div className="border p-2 relative bg-white transition duration-500 sm:hover:shadow-product group h-full space-x-3">
           {isPromoItem ? (
             <div className=" absolute inset-0 h-14 w-36">
               <span className="text-white bg-red-500 p-2">Marked To Clear</span>

@@ -33,6 +33,7 @@
     --input: 240 5.9% 90%;
     --ring: 142.1 76.2% 36.3%;
     --radius: 0.5rem;
+    --aa-input-border-color-alpha: 0.0;
   }
 
   .dark {
@@ -409,3 +410,30 @@ img {
 }
 
 /* slick slider */
+
+
+.aa-DetachedSearchButton {
+  align-items: center;
+  background-color: rgba(255, 255, 255,1);
+  background-color: rgba(var(--aa-input-background-color-rgb),var(--aa-input-background-color-alpha));
+  border:1px solid white !important;
+  /* border:1px solid rgba(var(--aa-input-border-color-rgb),var(--aa-input-border-color-alpha)); */
+  border-radius: 3px;
+  color: rgba(128, 126, 163,0.6);
+  color: rgba(var(--aa-muted-color-rgb),var(--aa-muted-color-alpha));
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-family: inherit;
+  font-family: var(--aa-font-family);
+  font-size: calc(16 * 1px);
+  font-size: var(--aa-font-size);
+  height: 44px;
+  height: var(--aa-search-input-height);
+  margin: 0;
+  padding: 0 calc(44px/8);
+  padding: 0 calc(var(--aa-search-input-height)/8);
+  position: relative;
+  text-align: left;
+  width: 100%
+}

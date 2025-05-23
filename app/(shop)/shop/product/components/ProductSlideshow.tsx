@@ -13,12 +13,9 @@ import { ColourImage, Variant } from "@/lib/apiTypes";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import AddToCart from "./addToCart";
 import ProductDescriptionTabs from "./productsInformation";
-import ScheduleCallModal from "@/components/shared/ScheduleCallModal";
 
 function ProductSlideshow({ product, stock, price }: any) {
-// meeting modal
-const [isMeetingModalVisible, setIsMeetingModalVisible] = useState(false);
-
+  // meeting modal
 
   const [selectedColor, setSelectedColor] = useState({} as any | null);
   const [productCode, setProductCode] = useState(product.fullCode);
@@ -67,7 +64,7 @@ const [isMeetingModalVisible, setIsMeetingModalVisible] = useState(false);
 
     setStock(stock);
 
-    console.log(stock)
+    console.log(stock);
     let stockItem = stock.find((item: any) => item.fullCode == productCode);
     if (stockItem) {
       setIsStockAvailable(true);
@@ -318,13 +315,6 @@ const [isMeetingModalVisible, setIsMeetingModalVisible] = useState(false);
               </div>
             </div>
           </div>
-          <ScheduleCallModal
-            isOpen={isMeetingModalVisible}
-            message={null}
-            onClose={() => {
-              setIsMeetingModalVisible(false);
-            }}
-          />
         </div>
       )}
     </>

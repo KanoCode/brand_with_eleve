@@ -26,11 +26,10 @@ const AddToCart: React.FC<AddToCartProps> = ({
   size,
   stock,
 }) => {
-  // const [selectedColor, setSelectedColor] = useState("");
   const [withOwnBranding, setWithBrandingPref] = useState("no");
   const [quantity, setQuantity] = useState(1);
   const [noStock, setNoStock] = useState(false);
-  // const [selectedColor, setSelectedColor] = useState("");
+
   const productImages = useProductStore((state: any) => state.productImages);
 
   useEffect(() => {
@@ -144,7 +143,7 @@ const AddToCart: React.FC<AddToCartProps> = ({
             toast.success("Product added to cart successfully");
           }}
           // Replace with actual event handler
-          className="disabled:opacity-50 w-[75%] rounded-md bg-red-600 hover:bg-primary px-3 py-2 flex items-center justify-center text-[22px] font-bold text-white shadow-sm"
+          className="disabled:opacity-50 w-[75%] rounded-md bg-red-600 hover:bg-primary hover:text-black px-3 py-2 flex items-center justify-center text-[22px] font-bold text-white shadow-sm"
           style={{ marginTop: "16px", marginBottom: "20px" }}
         >
           Add To Quote

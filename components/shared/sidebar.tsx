@@ -26,11 +26,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { MdMenu } from "react-icons/md";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
-import Image from "next/image";
-import { logo1 } from "@/asserts/img";
-// import ProductNav from "@/app/(shop)/shop/components/productsNav";
 import Link from "next/link";
 
 function SideBar({ categories }: any) {
@@ -96,34 +92,7 @@ function SideBar({ categories }: any) {
 export default SideBar;
 
 const Navbar2 = (props: any) => {
-  // const { isLoading, data } = useGetCategories();
-  // const router = useRouter();
-  // const [inputText, setInputText] = useState<string>("");
-  // const searchParams = useSearchParams();
-
-  // const keyDownHandler = (e: any) => {
-  //   if (e.key === "Enter" || e.keyCode === 13) {
-  //     e.preventDefault();
-  //     const params = new URLSearchParams(searchParams as any);
-
-  //     if (inputText) {
-  //       params.set("keyword", inputText);
-  //     } else {
-  //       params.delete("keyword");
-  //     }
-  //     // replace(`${pathName}?${params.toString()}`);
-  //     props.setOpen(false);
-  //     router.push(`/shop/search?keyword=${inputText}`);
-  //   }
-  // };
-
-  // const handleSearchInputChange = (e: any) => {
-  //   let searchString = e.target.value.trim();
-  //   if (searchString.length > 0) {
-  //     setInputText(e.target.value);
-  //     console.log(e.target.value);
-  //   }
-  // };
+ 
 
   return (
     <nav>

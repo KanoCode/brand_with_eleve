@@ -17,7 +17,7 @@ const HeroCategories = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-7 mb-6">
             {/* GIFTS */}
             <Link
-              href="/gifts"
+              href="/shop/category/gifts?keywords=gifts"
               className="relative group rounded overflow-hidden shadow-sm"
               aria-label="Browse Gifts"
             >
@@ -35,7 +35,7 @@ const HeroCategories = () => {
 
             {/* CLOTHING */}
             <Link
-              href="/clothing"
+              href="/shop/category/clothing?keywords=clothing"
               className="relative group rounded overflow-hidden shadow-sm"
               aria-label="Browse Clothing"
             >
@@ -53,7 +53,7 @@ const HeroCategories = () => {
 
             {/* HEADWEAR */}
             <Link
-              href="/headwear"
+              href="/shop/category/headwear?keywords=headwear"
               className="relative group rounded overflow-hidden shadow-sm"
               aria-label="Browse Headwear"
             >
@@ -72,7 +72,7 @@ const HeroCategories = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-7 mt-1 mb-8">
             {/* WORKWEAR */}
             <Link
-              href="/workwear"
+              href="/shop/category/workwear?keywords=workwear"
               className="relative group rounded overflow-hidden shadow-sm"
               aria-label="Browse Workwear"
             >
@@ -90,7 +90,7 @@ const HeroCategories = () => {
 
             {/* DISPLAY */}
             <Link
-              href="/display"
+              href="/shop/category/display?keywords=display"
               className="relative group rounded overflow-hidden shadow-sm"
               aria-label="Browse Display"
             >
@@ -108,7 +108,7 @@ const HeroCategories = () => {
 
             {/* CUSTOM PRODUCTS */}
             <Link
-              href="/custom-products"
+              href="/shop/category/custom-products?keywords=custom-products"
               className="relative group rounded overflow-hidden shadow-sm"
               aria-label="Browse Custom Products"
             >

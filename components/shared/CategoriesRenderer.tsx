@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { ProductsNavSuspenseProps } from "@/lib/apiTypes";
 import Dropdown from "./DropDown";
 import SearchBar from "./search";
+import CartSideBar from "./cartSideBar";
 
 function ProductsNavSuspense({ categoriesFetched }: ProductsNavSuspenseProps) {
   if (!categoriesFetched || categoriesFetched.length === 0) return null;
@@ -78,7 +79,7 @@ function ProductsNavSuspense({ categoriesFetched }: ProductsNavSuspenseProps) {
 
       {scrolledValue > 123 && activeSearchBar && (
         <li className="absolute transition-all duration-300 ease-in-out bg-white py-10 flex justify-end top-14 -left-10 right-0">
-          <SearchBar />
+          <SearchBar /> <CartSideBar />
         </li>
       )}
     </ul>

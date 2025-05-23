@@ -1,15 +1,17 @@
 "use client";
 
 import AllCategoriesDropdown from "./allCategoriesDropdown";
+import Search from "./Search1";
 
 function SearchBar() {
   return (
     <div className="hidden md:flex items-center w-full max-w-4xl mx-4 rounded-full border border-[#d6c9b6] overflow-hidden bg-white shadow-sm">
-      <input
+      {/* <input
         type="text"
         placeholder="Search by product name, code or keyword"
         className="  flex-grow px-4 py-2 text-sm focus:outline-none text-black"
-      />
+      /> */}
+      <Search />
       <div className="lg:flex hidden items-center px-4 border-l border-[#5a493b] text-[#22201e] cursor-pointer hover:text-[#5c5346]">
         <AllCategoriesDropdown />
         <svg
@@ -45,5 +47,4 @@ function SearchBar() {
   );
 }
 
-
-export default SearchBar
+export default SearchBar;

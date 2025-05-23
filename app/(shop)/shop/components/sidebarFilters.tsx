@@ -80,7 +80,11 @@ const SidebarFilters = ({
     <div className="lg:col-span-2 hidden lg:block">
       <Accordion type="single" collapsible>
         <AccordionItem value="item-1">
-          <AccordionTrigger>Brand</AccordionTrigger>
+          <AccordionTrigger className="relative">
+            Brand
+            <div className="absolute bottom-0 right-0 left-0 h-0.5 bg-gray-200"></div>
+            <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-[#5c5346]"></div>
+          </AccordionTrigger>
           <AccordionContent>
             <div className="mt-3 py-3 space-y-2 max-h-[240px] h-full overflow-y-auto">
               {Object.keys(brandsObj).map(
@@ -114,12 +118,15 @@ const SidebarFilters = ({
         </AccordionItem>
 
         <AccordionItem value="item-2">
-          <AccordionTrigger>
-            <div className="border-bottom border-color-1 mb-3 accordionHeading rolledUp">
-              <h4 className="section-title section-title__sm mb-0 pb-2 font-size-14">
+          <AccordionTrigger className="relative">
+            <div className=" border-color-1 mb-3 accordionHeading rolledUp">
+              <h4 className="section-title border-bottom section-title__sm mb-0 pb-2 font-size-14">
                 Colours <span className="group-count text-primary"></span>
               </h4>
             </div>
+            <div className="absolute bottom-0 right-0 left-0 h-0.5 bg-gray-200"></div>
+
+            <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-[#5c5346]"></div>
           </AccordionTrigger>
           <AccordionContent>
             <div>
@@ -157,7 +164,11 @@ const SidebarFilters = ({
         </AccordionItem>
 
         <AccordionItem value="item-3">
-          <AccordionTrigger>Type</AccordionTrigger>
+          <AccordionTrigger className="relative">
+            Type
+            <div className="absolute bottom-0 right-0 left-0 h-0.5 bg-gray-200"></div>
+            <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-[#5c5346]"></div>
+          </AccordionTrigger>
           <AccordionContent>
             <div className="mt-3 py-3 space-y-2 max-h-[240px] h-full overflow-y-auto">
               {Object.keys(typesObj).map((type: string) => {
@@ -191,12 +202,16 @@ const SidebarFilters = ({
         </AccordionItem>
         {checkSizesArray && (
           <AccordionItem value="item-4">
-            <AccordionTrigger>
+            <AccordionTrigger className="relative">
               <div className="border-bottom border-color-1 mb-3 accordionHeading rolledUp">
                 <h4 className="section-title section-title__sm mb-0 pb-2 font-size-14">
                   Fits <span className="group-count text-primary"></span>
                 </h4>
               </div>
+
+              <div className="absolute bottom-0 right-0 left-0 h-0.5 bg-gray-200"></div>
+
+              <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-[#5c5346]"></div>
             </AccordionTrigger>
             <AccordionContent>
               {Object.keys(fitsObj)?.map(
@@ -236,12 +251,16 @@ const SidebarFilters = ({
 
         {checkCategories && (
           <AccordionItem value="item-5">
-            <AccordionTrigger>
+            <AccordionTrigger className="relative">
               <div className="border-bottom border-color-1 mb-3 accordionHeading rolledUp">
                 <h4 className="section-title section-title__sm mb-0 pb-2 font-size-14">
                   Categories <span className="group-count text-primary"></span>
                 </h4>
               </div>
+
+              <div className="absolute bottom-0 right-0 left-0 h-0.5 bg-gray-200"></div>
+
+              <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-[#5c5346]"></div>
             </AccordionTrigger>
             <AccordionContent>
               <div>
@@ -284,12 +303,16 @@ const SidebarFilters = ({
 
         {checkGenders && (
           <AccordionItem value="item-6">
-            <AccordionTrigger>
+            <AccordionTrigger className="relative">
               <div className="border-bottom border-color-1 mb-3 accordionHeading rolledUp">
                 <h4 className="section-title section-title__sm mb-0 pb-2 font-size-14">
                   Genders <span className="group-count text-primary"></span>
                 </h4>
               </div>
+
+              <div className="absolute bottom-0 right-0 left-0 h-0.5 bg-gray-200"></div>
+
+              <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-[#5c5346]"></div>
             </AccordionTrigger>
             <AccordionContent>
               {Object.keys(gendersObj).map(
@@ -328,41 +351,18 @@ const SidebarFilters = ({
           </AccordionItem>
         )}
 
-        {/* <AccordionItem value="item-7">
-          <AccordionTrigger>
-            <div className="border-bottom border-color-1 mb-3 accordionHeading rolledUp">
-              <h4 className="section-title section-title__sm mb-0 pb-2 font-size-14">
-                Size <span className="group-count text-primary"></span>
-              </h4>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent>
-            <div></div>
-          </AccordionContent>
-        </AccordionItem> */}
-
-        {/* <AccordionItem value="item-8">
-          <AccordionTrigger>
-            <div className="border-bottom border-color-1 mb-3 accordionHeading rolledUp">
-              <h4 className="section-title section-title__sm mb-0 pb-2 font-size-14">
-                Branding Techniques{" "}
-                <span className="group-count text-primary"></span>
-              </h4>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent>
-            <div></div>
-          </AccordionContent>
-        </AccordionItem> */}
-
         {checkMaterials && (
           <AccordionItem value="item-9">
-            <AccordionTrigger>
+            <AccordionTrigger className="relative">
               <div className="border-bottom border-color-1 mb-3 accordionHeading rolledUp">
                 <h4 className="section-title section-title__sm mb-0 pb-2 font-size-14">
                   Materials <span className="group-count text-primary"></span>
                 </h4>
               </div>
+
+              <div className="absolute bottom-0 right-0 left-0 h-0.5 bg-gray-200"></div>
+
+              <div className="absolute bottom-0 left-0 w-1/4 h-0.5 bg-[#5c5346]"></div>
             </AccordionTrigger>
             <AccordionContent>
               {Object.keys(materialsObj).map(

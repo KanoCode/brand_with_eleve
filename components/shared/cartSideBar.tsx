@@ -46,7 +46,7 @@ function CartSideBar() {
   return (
     <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
       <SheetTrigger asChild>
-        <button className="rounded-md bg-primary px-2 py-2  text-lg text-white shadow-sm hover:bg-[#DB3A37] transition duration-300">
+        <button className="rounded-md bg-red-600 w-28  text-lg text-white p-2 shadow-sm hover:bg-[#DB3A37] transition duration-300">
           View Quote
         </button>
       </SheetTrigger>
@@ -72,7 +72,7 @@ function CartSideBar() {
           </p>
           <div className="mt-5 flex items-center gap-5">
             <Link
-              className={`w-full p-2 rounded-md flex-1 border-2 bg-primary text-white  
+              className={`w-full p-2 rounded-md flex-1 border-2 bg-[#5a493b] text-white  
   ${disabledBtn ? "pointer-events-none opacity-50" : "hover:bg-red-600"}`}
               aria-disabled={disabledBtn}
               onClick={() => {
@@ -87,7 +87,7 @@ function CartSideBar() {
             </Link>
 
             <Link
-              className={`w-full p-2 rounded-md flex-1 border-2 bg-primary text-white 
+              className={`w-full p-2 rounded-md flex-1 border-2 bg-[#5a493b] text-white 
   ${disabledBtn ? "pointer-events-none opacity-50" : "hover:bg-red-600"}`}
               aria-disabled={disabledBtn}
               onClick={() => {
