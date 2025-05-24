@@ -11,7 +11,6 @@ import AllCategoriesDropdown from "./allCategoriesDropdown";
 
 import SideBar from "./sidebar";
 import CartSideBar from "./cartSideBar";
-import { SearchWrapper } from "./mobileSearchWrapper";
 import { useState, useEffect } from "react";
 import { useProductStore } from "@/app/store/productsStore";
 

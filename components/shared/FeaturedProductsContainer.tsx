@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, Suspense } from "react";
-import ScheduleCallModal from "./ScheduleCallModal";
 
 // ProductGridSkeleton.js
 const ProductGridSkeleton = () => {
@@ -47,13 +46,6 @@ export default function FeaturedProductsContainer({
   return (
     <>
       <div className="md:mx-24">{children}</div>;
-      <ScheduleCallModal
-        isOpen={isMeetingModalVisible}
-        message={null}
-        onClose={() => {
-          setIsMeetingModalVisible(false);
-        }}
-      />
     </>
   );
 }
