@@ -47,7 +47,10 @@ function ProductsNavSuspense({ categoriesFetched }: ProductsNavSuspenseProps) {
     >
       {categoriesFetched.map((category) => {
         return (
-          <li className="cursor-pointer hover:underline flex items-center gap-1">
+          <li
+            key={category.categoryCode}
+            className="cursor-pointer hover:underline flex items-center gap-1"
+          >
             <Dropdown key={category.categoryCode} category={category} />
           </li>
         );

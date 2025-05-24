@@ -46,7 +46,7 @@ function CartSideBar() {
   return (
     <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
       <SheetTrigger asChild>
-        <button className="rounded-md bg-red-600 w-28  text-lg text-white p-2 shadow-sm hover:bg-[#DB3A37] transition duration-300">
+        <button className="rounded-md border-[#5a493b] w-28  text-lg text-[#5a493b] p-2 shadow-lg hover:bg-[#5a493b] hover:text-white transition duration-300">
           View Quote
         </button>
       </SheetTrigger>
@@ -68,7 +68,9 @@ function CartSideBar() {
               All Prices Excluding Taxes.
               </span>
             </span>
-            <span className="text-xl font-medium">$ {total}</span>
+            <span className="text-xl font-medium">ZMW {total.toFixed(2)
+              
+              }</span>
           </p>
           <div className="mt-5 flex items-center gap-5">
             <Link
@@ -169,7 +171,7 @@ export function QuotationComponent(props: any) {
                   </Button>
                 </div>
                 <div className="font-medium">
-                  $ {(+item.price * +item.quantity).toFixed(2)}
+                  K {(+item.price * +item.quantity).toFixed(2)}
                 </div>
                 <Button
                   onClick={() => {

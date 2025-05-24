@@ -18,7 +18,7 @@ import FilterBadges from "../../components/filterBadges";
 import PreviousButton from "../../components/previousButton";
 
 import {
-  getCurrentMarketHubRate,
+  getCurrentMarketRate,
   getGeneralPercentage,
   getManualPrices,
 } from "@/lib/server/amrodUtils/productsAndPrices";
@@ -155,7 +155,7 @@ async function Page({
   // cached constant values
   let manualPrices = await getManualPrices();
   let generalPercentage = await getGeneralPercentage();
-  let marketHubRate = await getCurrentMarketHubRate();
+  let marketHubRate = await getCurrentMarketRate();
 
   return (
     <div className="w-full container">
@@ -241,7 +241,7 @@ async function Page({
                       style={{ fontSize: " 28px" }}
                     >
                       I see our super brainy search engine couldn't find what
-                      you were looking for, do you mind if I give it a try?
+                      you were looking for, do you mind trying a different search?
                     </h3>
                     <h3
                       className="text-white sm:hidden"

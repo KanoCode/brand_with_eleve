@@ -143,7 +143,7 @@ function ProductSlideshow({ product, stock, price }: any) {
                 </h2>
                 <p className="text-gray-600 mb-4">SKU: {productCode}</p>
                 <div className="mb-4">
-                  <span className="text-2xl font-bold mr-2">USD {price}</span>
+                  <span className="text-2xl font-bold mr-2">K {price}</span>
                   {product.keywords.length > 0 && (
                     <h4 className="font-semibold">
                       {" "}
@@ -158,10 +158,11 @@ function ProductSlideshow({ product, stock, price }: any) {
 
                   {checkColors && (
                     <div className="flex space-x-2 flex-wrap">
-                      {checkColors.map((color: any) => {
+                      {checkColors.map((color: any, i: number) => {
                         if (color) {
                           return (
                             <div
+                              key={i}
                               onClick={() => {
                                 setSelectedColor(color);
 
@@ -300,8 +301,8 @@ function ProductSlideshow({ product, stock, price }: any) {
                   {" "}
                   Categories:
                   {product.categories &&
-                    product.categories.map((category: any) => (
-                      <h4 className="font-semibold"> {category.name},</h4>
+                    product.categories.map((category: any, idx:number) => (
+                      <h4 key={idx}  className="font-semibold"> {category.name},</h4>
                     ))}
                 </h4>
                 <div>

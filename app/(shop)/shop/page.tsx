@@ -14,7 +14,7 @@ import SidebarFilters from "./components/sidebarFilters";
 import { MobileFilters } from "./components/mobileFilters";
 import FilterBadges from "./components/filterBadges";
 import {
-  getCurrentMarketHubRate,
+  getCurrentMarketRate,
   getGeneralPercentage,
   getManualPrices,
 } from "@/lib/server/amrodUtils/productsAndPrices";
@@ -139,7 +139,7 @@ const Page = async ({
   }
   let manualPrices = await getManualPrices();
   let generalPercentage = await getGeneralPercentage();
-  let marketHubRate = await getCurrentMarketHubRate();
+  let marketRate = await getCurrentMarketRate();
   return (
     <div className="w-full container">
       <div>
@@ -180,7 +180,7 @@ const Page = async ({
               pageNumber={pageNumber}
               manualPrices={manualPrices}
               generalPercentage={generalPercentage}
-              marketHubRate={marketHubRate}
+              marketRate={marketRate}
               products={
                 filteredProducts.length > 0 ? filteredProducts : products
               }

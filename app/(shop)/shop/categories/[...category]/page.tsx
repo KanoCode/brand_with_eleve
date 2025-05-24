@@ -1,6 +1,6 @@
 import React from "react";
 import CategoryCard from "@/components/shared/CategoryCard";
-
+import { notFound } from "next/navigation";
 import { Separator } from "@/components/ui/separator";
 
 import { getCategories } from "@/components/shared/productsNav";
@@ -28,10 +28,15 @@ async function getOrganizedCategories(type: number) {
       `${process.env.MARKETHUB_NODE_URL}/organize-categories?categoryType=0`,
       { next: { revalidate: 24 * 7 * 3000 } }
     );
+    if (!res.ok) {
+      throw new Error(res.statusText);
+    }
+
     let response = await res.json();
     return response;
   } catch (error) {
     console.log(error);
+    notFound();
   }
 }
 

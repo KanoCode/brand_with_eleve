@@ -97,31 +97,29 @@ export function MobileFilters({
                           brandNamesOnly: string[]
                         ) => {
                           return (
-                            <>
-                              <div
-                                key={idx}
-                                className="flex items-center cursor-pointer"
+                            <div
+                              key={idx}
+                              className="flex items-center cursor-pointer"
+                            >
+                              <input
+                                value={name}
+                                onChange={() => {
+                                  let hybridStr = `brand-${name}`;
+                                  handleSearch(hybridStr);
+                                }}
+                                type="checkbox"
+                                className="h-4 w-4 rounded border-gray-300 text-siteSecondary-500 focus:ring-0 focus:ring-transparent"
+                              />
+                              <label
+                                htmlFor="brand-filter-fwrd-1-brand-119"
+                                className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer"
                               >
-                                <input
-                                  value={name}
-                                  onChange={() => {
-                                    let hybridStr = `brand-${name}`;
-                                    handleSearch(hybridStr);
-                                  }}
-                                  type="checkbox"
-                                  className="h-4 w-4 rounded border-gray-300 text-siteSecondary-500 focus:ring-0 focus:ring-transparent"
-                                />
-                                <label
-                                  htmlFor="brand-filter-fwrd-1-brand-119"
-                                  className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer"
-                                >
-                                  {name}{" "}
-                                  <span className="text-gray-400">
-                                    ({brandsObj[name].count})
-                                  </span>
-                                </label>
-                              </div>
-                            </>
+                                {name}{" "}
+                                <span className="text-gray-400">
+                                  ({brandsObj[name].count})
+                                </span>
+                              </label>
+                            </div>
                           );
                         }
                       )}
@@ -143,7 +141,7 @@ export function MobileFilters({
                   <AccordionContent>
                     <div>
                       <div className="grid grid-cols-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 py-3">
-                        {colorsArray.map((color: string) => {
+                        {colorsArray.map((color: string, idx: number) => {
                           let bgColor: string;
 
                           try {
@@ -154,6 +152,7 @@ export function MobileFilters({
 
                           return (
                             <button
+                              key={idx}
                               onClick={() => {
                                 let hybridStr = `colourImages-${
                                   color.split("/")[0]
@@ -180,30 +179,31 @@ export function MobileFilters({
                 <AccordionTrigger>Type</AccordionTrigger>
                 <AccordionContent>
                   <div className="mt-3 py-3 space-y-2 max-h-[240px] h-full overflow-y-auto">
-                    {Object.keys(typesObj).map((type: string) => {
+                    {Object.keys(typesObj).map((type: string, i: number) => {
                       return (
-                        <>
-                          <div className="flex items-center cursor-pointer">
-                            <input
-                              value={type}
-                              onChange={() => {
-                                let hybridStr = `type-${type}`;
-                                handleSearch(hybridStr);
-                              }}
-                              type="checkbox"
-                              className="h-4 w-4 rounded border-gray-300 text-siteSecondary-500 focus:ring-0 focus:ring-transparent"
-                            />
-                            <label
-                              htmlFor="brand-filter-fwrd-1-brand-119"
-                              className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer"
-                            >
-                              {type}{" "}
-                              <span className="text-gray-400">
-                                ({typesObj[type]})
-                              </span>
-                            </label>
-                          </div>
-                        </>
+                        <div
+                          key={i}
+                          className="flex items-center cursor-pointer"
+                        >
+                          <input
+                            value={type}
+                            onChange={() => {
+                              let hybridStr = `type-${type}`;
+                              handleSearch(hybridStr);
+                            }}
+                            type="checkbox"
+                            className="h-4 w-4 rounded border-gray-300 text-siteSecondary-500 focus:ring-0 focus:ring-transparent"
+                          />
+                          <label
+                            htmlFor="brand-filter-fwrd-1-brand-119"
+                            className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer"
+                          >
+                            {type}{" "}
+                            <span className="text-gray-400">
+                              ({typesObj[type]})
+                            </span>
+                          </label>
+                        </div>
                       );
                     })}
                   </div>
@@ -222,31 +222,29 @@ export function MobileFilters({
                     {Object.keys(fitsObj)?.map(
                       (name: string, idx: number, brandNamesOnly: string[]) => {
                         return (
-                          <>
-                            <div
-                              key={idx}
-                              className="flex items-center cursor-pointer"
+                          <div
+                            key={idx}
+                            className="flex items-center cursor-pointer"
+                          >
+                            <input
+                              value={name}
+                              onChange={() => {
+                                let hybridStr = `brand-${name}`;
+                                handleSearch(hybridStr);
+                              }}
+                              type="checkbox"
+                              className="h-4 w-4 rounded border-gray-300 text-siteSecondary-500 focus:ring-0 focus:ring-transparent"
+                            />
+                            <label
+                              htmlFor="brand-filter-fwrd-1-brand-119"
+                              className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer"
                             >
-                              <input
-                                value={name}
-                                onChange={() => {
-                                  let hybridStr = `brand-${name}`;
-                                  handleSearch(hybridStr);
-                                }}
-                                type="checkbox"
-                                className="h-4 w-4 rounded border-gray-300 text-siteSecondary-500 focus:ring-0 focus:ring-transparent"
-                              />
-                              <label
-                                htmlFor="brand-filter-fwrd-1-brand-119"
-                                className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer"
-                              >
-                                {name}{" "}
-                                <span className="text-gray-400">
-                                  ({fitsObj[name].count})
-                                </span>
-                              </label>
-                            </div>
-                          </>
+                              {name}{" "}
+                              <span className="text-gray-400">
+                                ({fitsObj[name].count})
+                              </span>
+                            </label>
+                          </div>
                         );
                       }
                     )}
@@ -273,30 +271,28 @@ export function MobileFilters({
                           brandNamesOnly: string[]
                         ) => {
                           return (
-                            <>
-                              <div
-                                key={idx}
-                                className="flex items-center cursor-pointer"
+                            <div
+                              key={idx}
+                              className="flex items-center cursor-pointer"
+                            >
+                              <input
+                                value={name}
+                                onChange={() => {
+                                  handleCategorySelectRoute(name);
+                                }}
+                                type="checkbox"
+                                className="h-4 w-4 rounded border-gray-300 text-siteSecondary-500 focus:ring-0 focus:ring-transparent"
+                              />
+                              <label
+                                htmlFor="brand-filter-fwrd-1-brand-119"
+                                className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer"
                               >
-                                <input
-                                  value={name}
-                                  onChange={() => {
-                                    handleCategorySelectRoute(name);
-                                  }}
-                                  type="checkbox"
-                                  className="h-4 w-4 rounded border-gray-300 text-siteSecondary-500 focus:ring-0 focus:ring-transparent"
-                                />
-                                <label
-                                  htmlFor="brand-filter-fwrd-1-brand-119"
-                                  className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer"
-                                >
-                                  {name}{" "}
-                                  <span className="text-gray-400">
-                                    ({categoriesObj[name].count})
-                                  </span>
-                                </label>
-                              </div>
-                            </>
+                                {name}{" "}
+                                <span className="text-gray-400">
+                                  ({categoriesObj[name].count})
+                                </span>
+                              </label>
+                            </div>
                           );
                         }
                       )}
@@ -319,32 +315,30 @@ export function MobileFilters({
                     {Object.keys(gendersObj).map(
                       (name: string, idx: number, brandNamesOnly: string[]) => {
                         return (
-                          <>
-                            <div
-                              key={idx}
-                              className="flex items-center cursor-pointer"
-                            >
-                              <input
-                                value={name}
-                                onChange={() => {
-                                  let hybridStr = `brand-${name}`;
+                          <div
+                            key={idx}
+                            className="flex items-center cursor-pointer"
+                          >
+                            <input
+                              value={name}
+                              onChange={() => {
+                                let hybridStr = `brand-${name}`;
 
-                                  handleSearch(hybridStr);
-                                }}
-                                type="checkbox"
-                                className="h-4 w-4 rounded border-gray-300 text-siteSecondary-500 focus:ring-0 focus:ring-transparent"
-                              />
-                              <label
-                                htmlFor="brand-filter-fwrd-1-brand-119"
-                                className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer"
-                              >
-                                {name}{" "}
-                                <span className="text-gray-400">
-                                  ({gendersObj[name].count})
-                                </span>
-                              </label>
-                            </div>
-                          </>
+                                handleSearch(hybridStr);
+                              }}
+                              type="checkbox"
+                              className="h-4 w-4 rounded border-gray-300 text-siteSecondary-500 focus:ring-0 focus:ring-transparent"
+                            />
+                            <label
+                              htmlFor="brand-filter-fwrd-1-brand-119"
+                              className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer"
+                            >
+                              {name}{" "}
+                              <span className="text-gray-400">
+                                ({gendersObj[name].count})
+                              </span>
+                            </label>
+                          </div>
                         );
                       }
                     )}
@@ -366,31 +360,29 @@ export function MobileFilters({
                     {Object.keys(materialsObj).map(
                       (name: string, idx: number, brandNamesOnly: string[]) => {
                         return (
-                          <>
-                            <div
-                              key={idx}
-                              className="flex items-center cursor-pointer"
+                          <div
+                            key={idx}
+                            className="flex items-center cursor-pointer"
+                          >
+                            <input
+                              value={name}
+                              onChange={() => {
+                                let hybridStr = `brand-${name}`;
+                                handleSearch(hybridStr);
+                              }}
+                              type="checkbox"
+                              className="h-4 w-4 rounded border-gray-300 text-siteSecondary-500 focus:ring-0 focus:ring-transparent"
+                            />
+                            <label
+                              htmlFor="brand-filter-fwrd-1-brand-119"
+                              className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer"
                             >
-                              <input
-                                value={name}
-                                onChange={() => {
-                                  let hybridStr = `brand-${name}`;
-                                  handleSearch(hybridStr);
-                                }}
-                                type="checkbox"
-                                className="h-4 w-4 rounded border-gray-300 text-siteSecondary-500 focus:ring-0 focus:ring-transparent"
-                              />
-                              <label
-                                htmlFor="brand-filter-fwrd-1-brand-119"
-                                className="ml-3 min-w-0 flex-1 text-gray-500 cursor-pointer"
-                              >
-                                {name}{" "}
-                                <span className="text-gray-400">
-                                  ({materialsObj[name].count})
-                                </span>
-                              </label>
-                            </div>
-                          </>
+                              {name}{" "}
+                              <span className="text-gray-400">
+                                ({materialsObj[name].count})
+                              </span>
+                            </label>
+                          </div>
                         );
                       }
                     )}

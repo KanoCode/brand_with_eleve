@@ -42,7 +42,7 @@ type SetInstantSearchUiStateOptions = {
   query: string;
 };
 
-const searchClient = algoliasearch(
+export const searchClient = algoliasearch(
   "SM6WMZD4CZ",
   "ca552f39783a34f8a0e7417fd52e49f1"
 );
@@ -118,14 +118,20 @@ export default function Search() {
   let query = searchParams.get("query") as string;
 
   return (
-    <InstantSearch searchClient={searchClient} indexName="markethub_test">
+    <InstantSearch
+      future={{
+        preserveSharedStateOnUnmount: true,
+      }}
+      searchClient={searchClient}
+      indexName="markethub_test"
+    >
       <Autocomplete
         initialState={{ query: query || "" }}
         searchClient={searchClient}
         placeholder="Search by product name, code or keyword"
         openOnFocus={true}
         detachedMediaQuery=""
-        className="w-full !bg-black"
+        className="w-full"
         getSources={({ query }: { query: any }) => [
           {
             sourceId: "products",
@@ -145,13 +151,7 @@ export default function Search() {
               });
             },
             templates: {
-              // header({ items, html }: any) {
-              //   if (items.length === 0) {
-              //     return null;
-              //   }
-              //   return html`<span class="aa-sourceHeaderTitle">Products</span>
-              //     <div class="aa-SourceHeaderLine" />`;
-              // },
+        
               item({ item, components }: any) {
                 return (
                   <ProductItem
@@ -170,12 +170,12 @@ export default function Search() {
         ]}
         onSubmit={({ state }: any) => {
           window.location.href = `/shop/search?query=${state.query}`;
-          event({
-            action: "search",
-            params: {
-              item: state.query,
-            },
-          });
+          // event({
+          //   action: "search",
+          //   params: {
+          //     item: state.query,
+          //   },
+          // });
         }}
       />
     </InstantSearch>
@@ -210,7 +210,7 @@ export function ProductItem({ hit, components, priceData, manualPrices }: any) {
         <div className="aa-ItemContentBody">
           <div className="aa-ItemContentTitle">
             <components.Highlight hit={hit} attribute="productName" />
-            <span className="pl-4 mr-2"> ${price}</span>
+            <span className="pl-4 mr-2"> ZMW {price}</span>
           </div>
         </div>
       </div>

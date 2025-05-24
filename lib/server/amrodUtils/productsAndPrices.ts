@@ -29,7 +29,7 @@ export const getLocalForex = async () => {
 };
 export const getMarketForexRate = async () => {
   const res = await fetch(
-    `https://api.getgeoapi.com/v2/currency/convert?api_key=9f27beb52c6fa0913c38e18caa426c21534d8704&from=ZAR&to=USD&amount=1&format=json`,
+    `https://api.getgeoapi.com/v2/currency/convert?api_key=9f27beb52c6fa0913c38e18caa426c21534d8704&from=ZAR&to=ZMW&amount=1&format=json`,
     {
       method: "GET",
       next: {
@@ -77,17 +77,10 @@ export async function getGeneralPercentage() {
   }
 }
 
-export async function getCurrentMarketHubRate() {
-  let cachedMarketHubRate = await redisClient.get("marketHubRate");
-  if (JSON.parse(cachedMarketHubRate || "0")) {
-    return JSON.parse(cachedMarketHubRate || "0");
-  }
-
+export async function getCurrentMarketRate() {
   let currentMarketRate = await getMarketForexRate();
+  let currentRate = Number(currentMarketRate?.rates["ZMW"].rate);
 
-  let currentRate = Number(currentMarketRate?.rates["USD"].rate);
-
-  await redisClient.setex("marketHubRate", 3600 * 24, currentRate);
   return currentRate;
 }
 
@@ -106,7 +99,7 @@ export async function getPriceAsyn(price: string, productCode: string) {
     if (docSnap.exists()) {
       percentage = docSnap.data().generalPercentage;
 
-      let marketHubRate = await getCurrentMarketHubRate();
+      let marketHubRate = await getCurrentMarketRate();
 
       let marketHubPrice = generalPriceCalculation(
         Number(price),

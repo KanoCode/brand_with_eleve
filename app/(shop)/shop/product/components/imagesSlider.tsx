@@ -64,20 +64,18 @@ function ImageSlider({ images }: any) {
               <Slider {...settings}>
                 {images.map((imgObj: any, i: number) => {
                   return (
-                    <>
-                      <button
-                        onClick={() => {
-                          setMainImageIndex(i);
-                        }}
-                        key={i}
-                      >
-                        <img
-                          className="size-24 sm:size-28 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
-                          src={imgObj?.urls[0].url}
-                          alt=""
-                        />
-                      </button>
-                    </>
+                    <button
+                      onClick={() => {
+                        setMainImageIndex(i);
+                      }}
+                      key={i}
+                    >
+                      <img
+                        className="size-24 sm:size-28 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
+                        src={imgObj?.urls[0].url}
+                        alt=""
+                      />
+                    </button>
                   );
                 })}
               </Slider>

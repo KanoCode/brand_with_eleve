@@ -18,7 +18,7 @@ export default async function RootLayout({
         <Nav categoriesFetched={categories} />
 
         {/* Navbar */}
-        <nav className=" hidden lg:block  top-0 z-30 bg-[#5a493b] text-white font-semibold text-sm shadow-sm">
+        <nav className=" hidden lg:block  bg-[#5a493b] text-white font-semibold text-sm shadow-sm">
           <ProductsNavSuspense categoriesFetched={categories} />
         </nav>
       </header>

@@ -39,8 +39,8 @@ function ProductDescriptionTabs(product: any, productCode: string) {
 
               {Object.keys(
                 product.product?.variants[0].packagingAndDimension
-              ).map((item) => (
-                <li>
+              ).map((item, id) => (
+                <li key={id}>
                   {item}:{" "}
                   {product.product?.variants[0].packagingAndDimension[item]}
                 </li>

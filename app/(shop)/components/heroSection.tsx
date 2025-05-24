@@ -2,13 +2,30 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const HeroSection = () => {
+  const [isSmScreen, setIsSmScreen] = useState(false);
+
+  // Function to detect screen size
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmScreen(window.innerWidth < 430); // Tailwind's md breakpoint is 768px
+    };
+
+    // Add event listener to check the screen size
+    window.addEventListener("resize", handleResize);
+    // Call the handler right away to set the state on initial load
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isSmScreen]);
   const settings = {
     dots: true,
     infinite: true,
@@ -51,7 +68,6 @@ const HeroSection = () => {
   };
 
   const db = [
-    // { message: "first", name: "eeddi" },
     {
       message: "second",
       name: "hso",
@@ -69,7 +85,11 @@ const HeroSection = () => {
     },
   ];
   return (
-    <section className="relative w-full h-[80vh] flex items-center justify-center ">
+    <section
+      className={`relative w-full h-[80vh] flex items-center justify-center ${
+        isSmScreen ? "mt-20" : ""
+      }`}
+    >
       <div className="bg-black absolute z-20 inset-0 bg-opacity-60 h-full"></div>
 
       <div className="w-[100vw] max-w-full mt-0">

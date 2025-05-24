@@ -34,6 +34,7 @@ export const useProductStore = create<any>(
         gender: null,
         color: null,
       },
+      viewportWidth:0,
       variants: [],
       cart: [],
       externalForexInfo: {},
@@ -77,6 +78,8 @@ export const useProductStore = create<any>(
       setProductImages: (data: any) => set({ productImages: data }),
       setVariants: (data: any) => set({ variants: data }),
       setStock: (data: any) => set({ stock: data }),
+      setViewportWidth:(data:number) => set({viewportWidth:data}),
+
     }),
     {
       name: "markethubData", // name of the item in the storage (must be unique)

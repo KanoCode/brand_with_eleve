@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useProductStore } from "@/app/store/productsStore";
 
 import { Button } from "@/components/ui/button";
@@ -31,7 +31,6 @@ import {
 import { MinusIcon, PlusIcon } from "@/components/shared/cartSideBar";
 import { ChevronRight, Home } from "lucide-react";
 import { ThankYouMessageDialog } from "./components/thankyouModal";
-import ScheduleCallModal from "@/components/shared/ScheduleCallModal";
 
 const fileSchema = z.object({
   filename: z.string(),
@@ -51,6 +50,36 @@ const formSchema = z.object({
 const Page = () => {
   const cart = useProductStore((state: any) => state.cart);
   const addCartItem = useProductStore((state: any) => state.setCart);
+  const viewportWidth = useProductStore((state: any) => state.viewportWidth);
+
+  const [isSmScreen, setIsSmScreen] = useState(false);
+
+  // Function to detect screen size
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 500) {
+        setIsSmScreen(true); // Tailwind's md breakpoint is 768px
+      }
+    };
+
+    // Add event listener to check the screen size
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [isSmScreen]);
+
+  useEffect(() => {
+    if (window.innerWidth < 500) {
+      setIsSmScreen(true); // Tailwind's md breakpoint is 768px
+    }
+
+    return () => {
+      // window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   let total = cart.reduce((initialTotal: number, product: any) => {
     return initialTotal + product.quantity * Number(product.price);
@@ -59,8 +88,11 @@ const Page = () => {
   return (
     <>
       {
-        <main className="container py-1 lg:pb-28 lg:pt-6 ">
-          <div className="flex items-center">
+        <main className={`container py-1 lg:pb-28 lg:pt-6 `}>
+          <div
+            className={`flex items-center
+            ${isSmScreen ? "mt-32" : ""}`}
+          >
             <Link
               role="button"
               href="/"
@@ -98,12 +130,15 @@ const Page = () => {
               <div className="mt-10 border-t border-neutral-300 pt-6 text-sm">
                 <div className="mt-4 flex justify-between pb-4">
                   <span>Subtotal</span>
-                  <span className="font-semibold"> $ {+total.toFixed(2)}</span>
+                  <span className="font-semibold">
+                    {" "}
+                    ZMW {+total.toFixed(2)}
+                  </span>
                 </div>
 
                 <div className="flex justify-between pt-4 text-base font-semibold">
                   <span>Total</span>
-                  <span> $ {+total.toFixed(2)}</span>
+                  <span> ZMW {+total.toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -135,7 +170,7 @@ const renderProduct = (item: any, cartArr: any[], addCartItem: Function) => {
           alt={item.name}
           className="size-full object-contain object-center"
         />
-        <Link className="absolute inset-0" href={`/products/${slug}`} />
+        <Link className="absolute inset-0" href={`/shop/product/${slug}`} />
       </div>
 
       <div className="ml-4 flex flex-1 flex-col justify-between">
@@ -153,7 +188,7 @@ const renderProduct = (item: any, cartArr: any[], addCartItem: Function) => {
 
               <span className="my-1 text-sm text-neutral-500">{colour}</span>
             </div>
-            <span className="font-medium md:text-xl">${currentPrice}</span>
+            <span className="font-medium md:text-xl">K{currentPrice}</span>
           </div>
         </div>
         <div className="flex w-full items-end justify-between text-sm">
@@ -269,19 +304,8 @@ const renderLeft = () => {
       });
   }
   return (
-    <div className="space-y-4 border-t border-neutral-300 px-6 py-7 sm:space-y-6 ">
+    <div className="space-y-4 border-t border-[#5c5346] bg-white shadow-lg px-6 py-7 sm:space-y-6 ">
       <h3 className="text-lg font-semibold">Contact infomation</h3>
-
-      <ScheduleCallModal
-        isOpen={isDialogOpen}
-        message="schedule-call-after-quotation-request"
-        onClose={() => {
-          clearAllCart();
-
-          setIsDialogOpen(false);
-          router.push("/");
-        }}
-      />
 
       <div id="ContactInfo" className="scroll-mt-24">
         <Form {...form}>

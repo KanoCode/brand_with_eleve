@@ -131,7 +131,7 @@ const SidebarFilters = ({
           <AccordionContent>
             <div>
               <div className="grid grid-cols-6 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 py-3">
-                {colorsArray.map((color: string) => {
+                {colorsArray.map((color: string, id:number) => {
                   let bgColor: string = "";
 
                   try {
@@ -142,6 +142,7 @@ const SidebarFilters = ({
 
                   return (
                     <button
+                    key={id}
                       onClick={() => {
                         let hybridStr = `colourImages-${color.split("/")[0]}`;
 
@@ -171,10 +172,10 @@ const SidebarFilters = ({
           </AccordionTrigger>
           <AccordionContent>
             <div className="mt-3 py-3 space-y-2 max-h-[240px] h-full overflow-y-auto">
-              {Object.keys(typesObj).map((type: string) => {
+              {Object.keys(typesObj).map((type: string, id:number) => {
                 return (
-                  <>
-                    <div className="flex items-center cursor-pointer">
+                  
+                    <div key={id} className="flex items-center cursor-pointer">
                       <input
                         value={type}
                         onChange={() => {
@@ -194,7 +195,7 @@ const SidebarFilters = ({
                         </span>
                       </label>
                     </div>
-                  </>
+                 
                 );
               })}
             </div>
@@ -217,7 +218,7 @@ const SidebarFilters = ({
               {Object.keys(fitsObj)?.map(
                 (name: string, idx: number, brandNamesOnly: string[]) => {
                   return (
-                    <>
+                 
                       <div
                         key={idx}
                         className="flex items-center cursor-pointer"
@@ -241,7 +242,7 @@ const SidebarFilters = ({
                           </span>
                         </label>
                       </div>
-                    </>
+                
                   );
                 }
               )}
@@ -267,7 +268,7 @@ const SidebarFilters = ({
                 {Object.keys(categoriesObj).map(
                   (name: string, idx: number, categoriesOnly: string[]) => {
                     return (
-                      <>
+                 
                         <div
                           key={idx}
                           className="flex items-center cursor-pointer"
@@ -292,7 +293,7 @@ const SidebarFilters = ({
                             </span>
                           </label>
                         </div>
-                      </>
+                     
                     );
                   }
                 )}
@@ -318,7 +319,7 @@ const SidebarFilters = ({
               {Object.keys(gendersObj).map(
                 (name: string, idx: number, brandNamesOnly: string[]) => {
                   return (
-                    <>
+                  
                       <div
                         key={idx}
                         className="flex items-center cursor-pointer"
@@ -343,7 +344,7 @@ const SidebarFilters = ({
                           </span>
                         </label>
                       </div>
-                    </>
+                   
                   );
                 }
               )}
@@ -368,7 +369,7 @@ const SidebarFilters = ({
               {Object.keys(materialsObj).map(
                 (name: string, idx: number, brandNamesOnly: string[]) => {
                   return (
-                    <>
+                   
                       <div
                         key={idx}
                         className="flex items-center cursor-pointer"
@@ -392,7 +393,7 @@ const SidebarFilters = ({
                           </span>
                         </label>
                       </div>
-                    </>
+          
                   );
                 }
               )}

@@ -38,10 +38,10 @@ export const generalPriceCalculation = (
   percentage: number
 ) => {
   let percentProfit = Number(percentage) / 100;
-  const priceInDollar: number = Number(priceInRand) * rate;
+  const priceInKwacha: number = Number(priceInRand) * rate;
 
-  let pricePercentage = priceInDollar * percentProfit;
-  let genPrice = pricePercentage + priceInDollar;
+  let pricePercentageIncrease = priceInKwacha * percentProfit;
+  let genPrice = pricePercentageIncrease + priceInKwacha;
   return genPrice;
 };
 

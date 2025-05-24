@@ -5,7 +5,7 @@ import { FiLoader } from "react-icons/fi";
 
 import Image from "next/image";
 
-import { useProductStore } from "@/app/store/productsStore";
+// import { useProductStore } from "@/app/store/productsStore";
 
 interface Props {
   productName: string;
@@ -74,7 +74,7 @@ const ProductCard: FC<Props> = ({
             {manualPrice > 0 ? (
               <div>
                 <div className="">
-                  <span className=""> USD {manualPrice}</span>
+                  <span className=""> ZMW {manualPrice}</span>
                   <span className="text-xs">
                     Excl. Taxes and branding options
                   </span>
@@ -83,7 +83,7 @@ const ProductCard: FC<Props> = ({
             ) : (
               <div>
                 <div className="flex flex-col justify-center">
-                  <span className=""> USD {+price.toFixed(2)}</span>
+                  <span className=""> ZMW {+price.toFixed(2)}</span>
                   <span className="text-xs">
                   Excl. Taxes and branding options
                   </span>
